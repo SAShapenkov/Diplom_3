@@ -9,7 +9,7 @@ from constants import Constants
 
 class TestOrderList:
     @allure.title('Eсли кликнуть на заказ, откроется всплывающее окно с деталями')
-    def test_click_order_opens_order_details_modal(self, driver):
+    def test_click_order_opens_order_details_popup(self, driver):
         main_page = MainPage(driver)
         main_page.open_page()
         main_page.wait_for_main_page_header_loaded()
