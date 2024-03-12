@@ -10,3 +10,4 @@ class OrderPageLocators:
  TODAY_COUNT_XPATH = "//p[text()='Выполнено за сегодня:']/following-sibling::p"
  FIRST_ORDERS_HISTORY_ORDER = (By.XPATH, ".//li[contains(@class, 'OrderHistory_listItem')]/a/div/p[contains(@class, "
                                          "'text_type_digits')]")
+

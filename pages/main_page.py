@@ -34,11 +34,7 @@ class MainPage(BasePage):
 
     @allure.step('Проверяем видимость всплывающего окна')
     def check_popup_opened(self):
-        try:
-            self.driver.find_element(By.XPATH, MainPageLocators.INGREDIENT_POPUP_XPATH)
-        except NoSuchElementException:
-            return False
-        return True
+        self.check_pop_opened(MainPageLocators.INGREDIENT_POPUP_XPATH)
 
     @allure.step('Ждем загрузки заголовка всплывающего окна')
     def wait_popup_header_loaded(self):

@@ -1,8 +1,12 @@
+from selenium.common import NoSuchElementException
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from constants import Constants
 import allure
+
+from locators.main_page_locators import MainPageLocators
 
 
 class BasePage:
@@ -52,3 +56,11 @@ class BasePage:
     @allure.step('Ждем исчезновения элемента из DOMа')
     def wait_until_element_not_present(self, locator, time=10):
         WebDriverWait(self.driver, 20).until(EC.invisibility_of_element_located(locator))
+
+    @allure.step('Проверяем видимость всплывающего окна')
+    def check_pop_opened(self, locator):
+        try:
+            self.driver.find_element(locator)
+        except NoSuchElementException:
+            return False
+        return True
