@@ -59,7 +59,7 @@ class MainPage(BasePage):
     @allure.step('Получаем значение ID заказа при его оформлении')
     def get_order_id_when_created(self):
         self.wait_until_element_not_present(MainPageLocators.TEMPORARY_ORDER_POPUP_HEADER)
-        return self.driver.find_element(By.XPATH, MainPageLocators.ORDER_ID_XPATH).text
+        return self.get_text_by_locator(MainPageLocators.ORDER_ID_XPATH)
 
     @allure.step('Создаем заказ через перетаскивание')
     def make_order(self):

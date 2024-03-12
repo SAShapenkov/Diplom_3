@@ -14,11 +14,7 @@ class OrdersHistoryPage(BasePage):
     @allure.step('Проверяем наличие ID заказа в Истории заказов')
     def check_order_id_in_orders_history(self, order_id):
         locator = f"//p[contains(text(), '{order_id}')]"
-        try:
-            self.driver.find_element(By.XPATH, locator)
-        except NoSuchElementException:
-            return False
-        return True
+        self.check_pop_opened(locator)
 
     @allure.step('Кликаем Лента Заказов')
     def click_orders_list(self):

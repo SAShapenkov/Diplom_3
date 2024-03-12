@@ -49,7 +49,7 @@ class BasePage:
 
     @allure.step('Получаем текст, находящийся по локатору')
     def get_by_locator(self, locator):
-        return self.driver.find_element(locator)
+        return self.driver.find_element(*locator)
 
     @allure.step('Драг-н-дроп элемента на элемент')
     def do_drag_n_drop(self, source, target):
@@ -64,7 +64,7 @@ class BasePage:
     @allure.step('Проверяем видимость всплывающего окна')
     def check_pop_opened(self, locator):
         try:
-            self.driver.find_element(locator)
+            self.driver.find_element(*locator)
         except NoSuchElementException:
             return False
         return True

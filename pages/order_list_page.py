@@ -36,11 +36,7 @@ class OrdersListPage(BasePage):
     @allure.step('Проверяем наличие ID {order_id} заказа в Ленте заказов')
     def check_order_id_in_orders_list(self, order_id):
         locator = f"//p[contains(text(), '{order_id}')]"
-        try:
-            self.driver.find_element(By.XPATH, locator)
-        except NoSuchElementException:
-            return False
-        return True
+        self.check_pop_opened(locator)
 
     @allure.step('Нажимаем Конструктор')
     def click_constructor(self):
@@ -48,17 +44,13 @@ class OrdersListPage(BasePage):
 
     @allure.step('Получаем значение счетчика Выполнено за все время')
     def get_total_count(self):
-        return self.driver.find_element(By.XPATH, OrderPageLocators.TOTAL_COUNT_XPATH).text
+        return self.get_text_by_locator(OrderPageLocators.TOTAL_COUNT_XPATH)
 
     @allure.step('Получаем значение счетчика Выполнено за сегодня')
     def get_today_count(self):
-        return self.driver.find_element(By.XPATH, OrderPageLocators.TODAY_COUNT_XPATH).text
+        return self.get_text_by_locator(OrderPageLocators.TODAY_COUNT_XPATH)
 
     @allure.step('Проверяем наличие ID {order_id} заказа среди заказов в работе')
     def check_order_id_in_processing_orders(self, order_id):
         locator = f"//li[text()='{order_id}']"
-        try:
-            self.driver.find_element(By.XPATH, locator)
-        except NoSuchElementException:
-            return False
-        return True
+        self.check_pop_opened()
