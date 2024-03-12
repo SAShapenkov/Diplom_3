@@ -46,7 +46,7 @@ class MainPage(BasePage):
 
     @allure.step('Получаем значение счетчика ингредиента')
     def get_first_ingredient_counter_value(self):
-        return self.driver.find_element(By.XPATH, MainPageLocators.FIRST_INGREDIENT_COUNTER_XPATH).text
+        return self.get_by_locator(MainPageLocators.FIRST_INGREDIENT_COUNTER_XPATH)
 
     @allure.step('Перетаскиваем первый ингредиент в корзину')
     def drag_n_drop_first_ingredient_to_basket(self):

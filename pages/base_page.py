@@ -47,6 +47,10 @@ class BasePage:
     def get_text_by_locator(self, locator):
         return self.find_element_located(locator).text
 
+    @allure.step('Получаем текст, находящийся по локатору')
+    def get_by_locator(self, locator):
+        return self.driver.find_element(locator)
+
     @allure.step('Драг-н-дроп элемента на элемент')
     def do_drag_n_drop(self, source, target):
         drag = WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable(source))
