@@ -47,7 +47,7 @@ class BasePage:
     def get_text_by_locator(self, locator):
         return self.find_element_located(locator).text
 
-    @allure.step('Получаем текст, находящийся по локатору')
+    @allure.step('Получаем элемент по локатору')
     def get_by_locator(self, locator):
         return self.driver.find_element(*locator)
 
