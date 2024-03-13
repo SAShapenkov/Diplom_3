@@ -13,7 +13,9 @@ class OrdersHistoryPage(BasePage):
 
     @allure.step('Проверяем наличие ID заказа в Истории заказов')
     def check_order_id_in_orders_history(self, order_id):
-        locator = f"//p[contains(text(), '{order_id}')]"
+        or_a = OrderPageLocators.ORDER_LOCATOR_A
+        or_b = OrderPageLocators.ORDER_LOCATOR_B
+        locator = f"{or_a}+{order_id}+{or_b}"
         self.check_pop_opened(locator)
 
     @allure.step('Кликаем Лента Заказов')
