@@ -1,5 +1,4 @@
 import allure
-from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
